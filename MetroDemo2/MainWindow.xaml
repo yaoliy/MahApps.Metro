@@ -2,14 +2,91 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:metroDemo2="clr-namespace:MetroDemo2" mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" d:DataContext="{d:DesignInstance metroDemo2:ShellViewModel}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.Resources;component/Icons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid>
-        <controls:MetroProgressBar x:Name="Testing" 
-                                   IsIndeterminate="True"
-                                   EllipseDiameter="20" 
-                                   EllipseOffset="-10"
-                                   HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Stretch"
-                                   Foreground="Red" />
+
+        <ListView ItemsSource="{Binding Data}" BorderThickness="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Item1" DisplayMemberBinding="{Binding Item1}" />
+                    <GridViewColumn Header="Item2" DisplayMemberBinding="{Binding Item2}" />
+                    <GridViewColumn Header="Item3" DisplayMemberBinding="{Binding Item3}" />
+                    <GridViewColumn Header="Item4" DisplayMemberBinding="{Binding Item4}" />
+                    <GridViewColumn Header="Item5" DisplayMemberBinding="{Binding Item5}" />
+                    <GridViewColumn Header="Item6" DisplayMemberBinding="{Binding Item6}" />
+                    <GridViewColumn Header="Item7" DisplayMemberBinding="{Binding Item7}" />
+                    <GridViewColumn Header="Item8" DisplayMemberBinding="{Binding Item8}" />
+                    <GridViewColumn Header="Item9" DisplayMemberBinding="{Binding Item9}" />
+                    <GridViewColumn Header="Item10" DisplayMemberBinding="{Binding Item10}" />
+                    
+                    <GridViewColumn Header="Item11" DisplayMemberBinding="{Binding Item11}" />
+                    <GridViewColumn Header="Item12" DisplayMemberBinding="{Binding Item12}" />
+                    <GridViewColumn Header="Item13" DisplayMemberBinding="{Binding Item13}" />
+                    <GridViewColumn Header="Item14" DisplayMemberBinding="{Binding Item14}" />
+                    <GridViewColumn Header="Item15" DisplayMemberBinding="{Binding Item15}" />
+                    <GridViewColumn Header="Item16" DisplayMemberBinding="{Binding Item16}" />
+                    <GridViewColumn Header="Item17" DisplayMemberBinding="{Binding Item17}" />
+                    <GridViewColumn Header="Item18" DisplayMemberBinding="{Binding Item18}" />
+                    <GridViewColumn Header="Item19" DisplayMemberBinding="{Binding Item19}" />
+                    <GridViewColumn Header="Item20" DisplayMemberBinding="{Binding Item20}" />
+
+                    <GridViewColumn Header="Item21" DisplayMemberBinding="{Binding Item21}" />
+                    <GridViewColumn Header="Item22" DisplayMemberBinding="{Binding Item22}" />
+                    <GridViewColumn Header="Item23" DisplayMemberBinding="{Binding Item23}" />
+                    <GridViewColumn Header="Item24" DisplayMemberBinding="{Binding Item24}" />
+                    <GridViewColumn Header="Item25" DisplayMemberBinding="{Binding Item25}" />
+                    <GridViewColumn Header="Item26" DisplayMemberBinding="{Binding Item26}" />
+                    <GridViewColumn Header="Item27" DisplayMemberBinding="{Binding Item27}" />
+                    <GridViewColumn Header="Item28" DisplayMemberBinding="{Binding Item28}" />
+                    <GridViewColumn Header="Item29" DisplayMemberBinding="{Binding Item29}" />
+                    <GridViewColumn Header="Item30" DisplayMemberBinding="{Binding Item30}" />
+
+                    <GridViewColumn Header="Item31" DisplayMemberBinding="{Binding Item31}" />
+                    <GridViewColumn Header="Item32" DisplayMemberBinding="{Binding Item32}" />
+                    <GridViewColumn Header="Item33" DisplayMemberBinding="{Binding Item33}" />
+                    <GridViewColumn Header="Item34" DisplayMemberBinding="{Binding Item34}" />
+                    <GridViewColumn Header="Item35" DisplayMemberBinding="{Binding Item35}" />
+                    <GridViewColumn Header="Item36" DisplayMemberBinding="{Binding Item36}" />
+                    <GridViewColumn Header="Item37" DisplayMemberBinding="{Binding Item37}" />
+                    <GridViewColumn Header="Item38" DisplayMemberBinding="{Binding Item38}" />
+                    <GridViewColumn Header="Item39" DisplayMemberBinding="{Binding Item39}" />
+                    <GridViewColumn Header="Item40" DisplayMemberBinding="{Binding Item40}" />
+
+                    <GridViewColumn Header="Item41" DisplayMemberBinding="{Binding Item41}" />
+                    <GridViewColumn Header="Item42" DisplayMemberBinding="{Binding Item42}" />
+                    <GridViewColumn Header="Item43" DisplayMemberBinding="{Binding Item43}" />
+                    <GridViewColumn Header="Item44" DisplayMemberBinding="{Binding Item44}" />
+                    <GridViewColumn Header="Item45" DisplayMemberBinding="{Binding Item45}" />
+                    <GridViewColumn Header="Item46" DisplayMemberBinding="{Binding Item46}" />
+                    <GridViewColumn Header="Item47" DisplayMemberBinding="{Binding Item47}" />
+                    <GridViewColumn Header="Item48" DisplayMemberBinding="{Binding Item48}" />
+                    <GridViewColumn Header="Item49" DisplayMemberBinding="{Binding Item49}" />
+                    <GridViewColumn Header="Item50" DisplayMemberBinding="{Binding Item50}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <controls:ProgressRing x:Name="progress" 
+                               Height="100"
+                               Width="100"
+                               IsActive="True"
+                               Foreground="Red" />
     </Grid>
 </Window>
