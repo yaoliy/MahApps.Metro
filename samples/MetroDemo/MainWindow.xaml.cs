@@ -92,6 +92,11 @@ namespace MetroDemo
             new IconsWindow().Show();
         }
 
+        private void LaunchWinFormsHost(object sender, RoutedEventArgs e)
+        {
+            new WinFormsHost().Show();
+        }
+
         private void FlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var flipview = ((FlipView)sender);
@@ -108,5 +113,6 @@ namespace MetroDemo
                     break;
             }
         }
+
     }
 }

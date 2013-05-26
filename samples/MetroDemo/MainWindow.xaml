@@ -39,6 +39,7 @@
 
     <Controls:MetroWindow.WindowCommands>
         <Controls:WindowCommands>
+            <Button Click="LaunchWinFormsHost" Content="WinFormsHost Demo" />
             <Button Click="LaunchVisualStudioDemo" Content="VS Demo" />
             <Button Click="LaunchFlyoutDemo" Content="Flyout Demo" />
             <Button Click="LaunchPanoramaDemo" Content="Panorama Demo" />

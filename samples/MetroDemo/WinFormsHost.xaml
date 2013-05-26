@@ -1,0 +1,13 @@
+﻿<controls:MetroWindow x:Class="MetroDemo.WinFormsHost"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:winForms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+                      Title="WinFormsHost Demo" 
+                      Height="600" Width="600">
+    <Grid>
+        <WindowsFormsHost x:Name="Host">
+            <winForms:PictureBox ImageLocation="C:\Users\Brendan\Desktop\Scribble_WebDocs.jpg" />
+        </WindowsFormsHost>
+    </Grid>
+</controls:MetroWindow>
