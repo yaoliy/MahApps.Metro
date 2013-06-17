@@ -605,7 +605,7 @@
                                 <Controls:MetroTabControl.ItemContainerStyle>
                                     <Style TargetType="{x:Type Controls:MetroTabItem}">
                                         <Setter Property="CloseButtonEnabled" Value="True"></Setter>
-                                        <Setter Property="CloseTabCommand" Value="{Binding CloseCommand}"></Setter>
+                                        <Setter Property="CloseTabCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=Controls:MetroTabControl},Path=DataContext.ParentCloseCommand}"></Setter>
                                         <Setter Property="CloseTabCommandParameter" Value="{Binding}"></Setter>
                                     </Style>
                                 </Controls:MetroTabControl.ItemContainerStyle>

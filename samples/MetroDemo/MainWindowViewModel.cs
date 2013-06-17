@@ -95,6 +95,44 @@ namespace MetroDemo
 
         public string Error { get { return string.Empty; } }
 
+        public ICommand ParentCloseCommand
+        {
+            get
+            {
+                return new RelayCommand<TabViewModel>(tab => tab.IsValid, Execute);
+            }
+        }
+
+        private void Execute(TabViewModel tab)
+        {
+            Tabs.Remove(tab);
+        }
+
+        public class RelayCommand<T> : ICommand
+        {
+            private readonly Func<T, bool> _canExecute;
+            private readonly Action<T> _execute;
+
+            public RelayCommand(Func<T, bool> canExecute, Action<T> execute)
+            {
+                _canExecute = canExecute;
+                _execute = execute;
+            }
+
+            public void Execute(object parameter)
+            {
+                _execute((T) parameter);
+            }
+
+            public bool CanExecute(object parameter)
+            {
+                return _canExecute((T) parameter);
+            }
+
+            public event EventHandler CanExecuteChanged;
+        }
+
+
         public ICommand SingleCloseTabCommand { get { return new ExampleSingleTabCloseCommand(); } }
 
         public class ExampleSingleTabCloseCommand : ICommand
@@ -146,6 +184,11 @@ namespace MetroDemo
                 set { _header = value; OnPropertyChanged("Header"); }
             }
 
+            public bool IsValid
+            {
+                get { return true; }
+            }
+
             [NotifyPropertyChangedInvocator]
             protected virtual void OnPropertyChanged(string propertyName)
             {
@@ -156,11 +199,6 @@ namespace MetroDemo
             public override string ToString()
             {
                 return Header;
-            }
-
-            public ICommand CloseCommand
-            {
-                get { return new ExampleSingleTabCloseCommand(); }
             }
         }
     }
