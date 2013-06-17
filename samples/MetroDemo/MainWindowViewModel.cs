@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using MahApps.Metro.Controls;
+using MetroDemo.Annotations;
 using MetroDemo.Models;
 using System.Windows.Input;
 
@@ -14,14 +15,15 @@ namespace MetroDemo
         readonly PanoramaGroup _albums;
         readonly PanoramaGroup _artists;
         int? _integerGreater10Property;
+        private ObservableCollection<TabViewModel> _tabs;
 
         public MainWindowViewModel()
         {
             SampleData.Seed();
-            
+
             Albums = SampleData.Albums;
             Artists = SampleData.Artists;
-            
+
             Busy = true;
 
             _albums = new PanoramaGroup("trending tracks");
@@ -31,6 +33,13 @@ namespace MetroDemo
 
             _artists.SetSource(SampleData.Artists.Take(25));
             _albums.SetSource(SampleData.Albums.Take(25));
+
+            Tabs = new ObservableCollection<TabViewModel>();
+            Tabs.Add(new TabViewModel { Header = "Item 1" });
+            Tabs.Add(new TabViewModel { Header = "Item 2" });
+            Tabs.Add(new TabViewModel { Header = "Item 3" });
+            Tabs.Add(new TabViewModel { Header = "Item 4" });
+            Tabs.Add(new TabViewModel { Header = "Item 5" });
 
             Busy = false;
         }
@@ -105,6 +114,12 @@ namespace MetroDemo
 
         public ICommand NeverCloseTabCommand { get { return new AlwaysInvalidCloseCommand(); } }
 
+        public ObservableCollection<TabViewModel> Tabs
+        {
+            get { return _tabs; }
+            set { _tabs = value; RaisePropertyChanged("Tabs"); }
+        }
+
         public class AlwaysInvalidCloseCommand : ICommand
         {
             public bool CanExecute(object parameter)
@@ -117,6 +132,35 @@ namespace MetroDemo
             public void Execute(object parameter)
             {
 
+            }
+        }
+
+        public class TabViewModel : INotifyPropertyChanged
+        {
+            private string _header;
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            public string Header
+            {
+                get { return _header; }
+                set { _header = value; OnPropertyChanged("Header"); }
+            }
+
+            [NotifyPropertyChangedInvocator]
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            public override string ToString()
+            {
+                return Header;
+            }
+
+            public ICommand CloseCommand
+            {
+                get { return new ExampleSingleTabCloseCommand(); }
             }
         }
     }

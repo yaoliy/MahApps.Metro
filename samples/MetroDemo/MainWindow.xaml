@@ -595,7 +595,24 @@
                                 </Controls:MetroAnimatedSingleRowTabControl>
                             </Grid>
                             <Label Content="TabControl w/ Closable Items" Style="{StaticResource DescriptionHeaderStyle}" />
-                            <Controls:MetroTabControl TabItemClosingEvent="MetroTabControl_TabItemClosingEvent">
+
+                            <Controls:MetroTabControl ItemsSource="{Binding Tabs}">
+                                <Controls:MetroTabControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Header}"></TextBlock>
+                                    </DataTemplate>
+                                </Controls:MetroTabControl.ItemTemplate>
+                                <Controls:MetroTabControl.ItemContainerStyle>
+                                    <Style TargetType="{x:Type Controls:MetroTabItem}">
+                                        <Setter Property="CloseButtonEnabled" Value="True"></Setter>
+                                        <Setter Property="CloseTabCommand" Value="{Binding CloseCommand}"></Setter>
+                                        <Setter Property="CloseTabCommandParameter" Value="{Binding}"></Setter>
+                                    </Style>
+                                </Controls:MetroTabControl.ItemContainerStyle>
+                            </Controls:MetroTabControl>
+                            
+                            
+                            <!--<Controls:MetroTabControl TabItemClosingEvent="MetroTabControl_TabItemClosingEvent">
                                 <Controls:MetroTabItem Header="headers" HeaderFontSize="20" CloseButtonEnabled="True" 
                                                        CloseTabCommand="{Binding SingleCloseTabCommand}"
                                                        CloseTabCommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Header}">
@@ -618,7 +635,7 @@
                                 <Controls:MetroTabItem Header="sizes" HeaderFontSize="30" CloseButtonEnabled="True">
                                     <TextBlock FontSize="30" Text="This is not content (it is). This one won't close." />
                                 </Controls:MetroTabItem>
-                            </Controls:MetroTabControl>
+                            </Controls:MetroTabControl>-->
                             <TabControl TabStripPlacement="Left" Style="{DynamicResource MetroTabControl}">
                                 <TabItem Header="LeftItem0" Content="This is left content 0" />
                                 <TabItem Header="LeftItem1" Content="This is left content 1" />
