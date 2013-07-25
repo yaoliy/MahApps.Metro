@@ -13,6 +13,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Colours.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/VS/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="HeaderTemplate">
+                <TextBlock Foreground="{StaticResource Foreground}" Text="{Binding}" />
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
@@ -55,7 +58,7 @@
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
             <TabControl Margin="0,10,0,0">
-                <TabItem Header="Start">
+                <TabItem Header="Start" HeaderTemplate="{StaticResource HeaderTemplate}">
                     <Grid Margin="50">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
@@ -82,7 +85,7 @@
                         <TextBlock FontSize="16" Grid.Row="5" Foreground="{StaticResource Foreground}" Grid.Column="1">Enterprise (NCC-1701)</TextBlock>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Manage Rockets">
+                <TabItem Header="Manage Rockets" HeaderTemplate="{StaticResource HeaderTemplate}">
                     <DockPanel>
                         <Button Margin="50" Height="30" Width="200" DockPanel.Dock="Bottom">Add rocket</Button>
                         <ListBox Margin="50" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -105,7 +108,7 @@
                         </ListBox>
                     </DockPanel>
                 </TabItem>
-                <TabItem Header="Communication">
+                <TabItem Header="Communication" HeaderTemplate="{StaticResource HeaderTemplate}">
                     <Grid Margin="50">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -129,7 +132,7 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Crew">
+                <TabItem Header="Crew" HeaderTemplate="{StaticResource HeaderTemplate}">
                     <ListBox Margin="50">
                         <ListBoxItem>
                             <StackPanel>
@@ -205,7 +208,7 @@
                         </ListBoxItem>
                     </ListBox>
                 </TabItem>
-                <TabItem Header="Crew Horizontal">
+                <TabItem Header="Crew Horizontal" HeaderTemplate="{StaticResource HeaderTemplate}">
                     <ListBox Margin="50" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
